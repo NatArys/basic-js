@@ -1,6 +1,6 @@
-const {
-  NotImplementedError
-} = require('../extensions/index.js');
+// const {
+//   NotImplementedError
+// } = require('../extensions/index.js');
 
 /**
  * Implement class VigenereCipheringMachine that allows us to create
@@ -21,7 +21,7 @@ const {
  * reverseMachine.decrypt('AEIHQX SX DLLU!', 'alphonse') => '!NWAD TA KCATTA'
  * 
  */
- class VigenereCipheringMachine {
+class VigenereCipheringMachine {
   constructor(dir = true) {
     this.dir = dir;
   }
@@ -45,11 +45,11 @@ const {
       } else res.push(mes[i]);
     }
 
-    // console.log(res.join(''));
+    console.log(res.join(''));
     return this.dir ? res.join('') : res.reverse().join('');
+    // return res.join('');
 
   }
-
   decrypt(encryptedMessage, key) {
 
     if (!encryptedMessage || !key) throw new Error('Incorrect arguments!');
@@ -70,13 +70,16 @@ const {
       } else res.push(mes[i]);
     }
 
-    // console.log(res.join(''));
-    return this.dir ? res.join('') : res.reverse().join('');
-
+    console.log(res.join(''));
+    return res.join('');
 
   }
 }
 
-module.exports = {
-  VigenereCipheringMachine
-};
+const directMachine = new VigenereCipheringMachine();
+directMachine.encrypt('KQ$5', 'dfgh')
+directMachine.decrypt('NV$5', 'dfgh')
+
+// module.exports = {
+//   VigenereCipheringMachine
+// };
